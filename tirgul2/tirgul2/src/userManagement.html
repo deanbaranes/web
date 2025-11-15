@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="content">
+    <div class="container" style="width: 700px">
+      <h1>User Management</h1>
+
+      <!-- Welcome message -->
+      <p>Welcome, <span id="usernameDisplay"></span></p>
+
+      <!-- Users table -->
+      <table class="min-w-full border border-gray-300 rounded mt-4">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="p-2 border-b">Username</th>
+            <th class="p-2 border-b">Email</th>
+            <th class="p-2 border-b">Date of Birth</th>
+            <th class="p-2 border-b">Role</th>
+          </tr>
+        </thead>
+        <tbody id="usersTable"></tbody>
+      </table>
+    </div>
+
+    <script>
+      // Get the logged-in user and all users from localStorage
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Display current user's name
+      document.getElementById("usernameDisplay").textContent =
+        currentUser?.username || "Guest";
+
+      // Fill the table (without password)
+      const tableBody = document.getElementById("usersTable");
+      users.forEach((user) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+        <td class="p-2 border-b">${user.username}</td>
+        <td class="p-2 border-b">${user.email}</td>
+        <td class="p-2 border-b">${user.dob}</td>
+        <td class="p-2 border-b">${user.role}</td>
+      `;
+        tableBody.appendChild(row);
+      });
+    </script>
+  </body>
+</html>
