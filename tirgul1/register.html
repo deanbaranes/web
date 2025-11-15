@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href= "https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body class="content">
+    <div class = "container">
+        <h1>Register</h1>
+        <form>
+            
+            <input type = "text" id = "userInput" placeholder="Username" required/>
+            <input type = "email" id = "emailInput" placeholder="Email" required>
+            <input type = "password" id = "passwordInput" placeholder="Password" required/>
+            <input type = "passwordCheck" id = "passwordInput" placeholder="Password again" required/>
+            <input type="date" id="birthDate" name="birthDate" min="2000-01-02" required>
+
+            <button type="submit" class="w-full p-3 bg-blue-500 text-white rounded hover:bg-red-600">Register</button>
+            <a href="login.html" class="block text-right mt-4 text-blue-500 hover:underline">Already have an account? Login</a>
+            
+        </form>
+    </div>
+</body>
+</html>
